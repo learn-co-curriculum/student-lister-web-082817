@@ -14,9 +14,28 @@ class StudentsController < ApplicationController
 
   def create
     student = Student.create(student_params)
-
     redirect_to(student)
   end
+
+  def edit
+    @student = Student.find_by(id: params[:id])
+  end
+
+  def update
+    student = Student.find_by(id: params[:id])
+    student.update(student_params)
+
+    redirect_to student
+  end
+
+
+  def destroy
+    @student = Student.find_by(id: params[:id])
+    @student.destroy
+    redirect_to students_path
+  end
+
+
 
   private
 
