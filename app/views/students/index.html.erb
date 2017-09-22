@@ -3,8 +3,8 @@
 
 <ul>
   <% @students.each do |student| %>
-    <li><%= link_to student.name, student %></li>
+    <li><%= make_link(student.name, student) %> | <%= link_to 'Edit this student', edit_student_path(student) %></li>
   <% end %>
 </ul>
 
-<%= link_to 'See all the students', '/students' %>
+<%= make_link 'See all the students', '/students' %>
